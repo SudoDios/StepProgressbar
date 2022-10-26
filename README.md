@@ -5,8 +5,26 @@ make your step progress bar easily on your project
 
 [![Platform](https://img.shields.io/badge/platform-android-green.svg)](http://developer.android.com/index.html)
 [![API](https://img.shields.io/badge/API-16%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=16)
+![JitPack](https://img.shields.io/jitpack/version/com.github.SudoDios/StepProgressbar)
 
 <img src="https://github.com/SudoDios/StepProgressbar/blob/master/stepProgressbar.gif" width="144" height="321"/>
+
+### How to use
+Step 1 : Add it in your root build.gradle at the end of repositories:
+```gradle
+allprojects {
+	repositories {
+		...
+		maven { url 'https://jitpack.io' }
+	}
+}
+```
+Step 2 : Add the dependency:
+```gradle
+dependencies {
+	implementation 'com.github.SudoDios:StepProgressbar:1.0.0'
+}
+```
 
 ### XML Layout (Circle Progressbar)
 ```xml
