@@ -3,6 +3,9 @@
 # StepProgressbar
 make your step progress bar easily on your project
 
+[![Platform](https://img.shields.io/badge/platform-android-green.svg)](http://developer.android.com/index.html)
+[![API](https://img.shields.io/badge/API-16%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=16)
+
 <img src="https://github.com/SudoDios/StepProgressbar/blob/master/stepProgressbar.gif" width="144" height="321"/>
 
 ### XML Layout (Circle Progressbar)
