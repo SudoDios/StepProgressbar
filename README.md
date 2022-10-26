@@ -89,3 +89,5 @@ binding.stepProgressbar.apply {
       }
 }
 ```
+#### Note
+`RTL support is coming soon`
