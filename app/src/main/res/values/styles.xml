@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="MainStyle" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="colorPrimary">#ff9800</item>
+        <item name="colorAccent">#ff9800</item>
+
+        <item name="colorPrimaryDark">#121C2C</item>
+
+        <item name="android:navigationBarColor" tools:ignore="NewApi">@android:color/transparent</item>
+        <item name="android:statusBarColor" tools:ignore="NewApi">@android:color/transparent</item>
+        <item name="android:forceDarkAllowed" tools:targetApi="q">false</item>
+        <item name="android:fitsSystemWindows">false</item>
+    </style>
+</resources>

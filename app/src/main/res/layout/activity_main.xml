@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/colorPrimaryDark">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:gravity="center">
+
+        <me.sudodios.stepprogressbar.StepProgressBar
+            android:id="@+id/circleProgress"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            app:sp_progressWidth="10dp"
+            app:sp_progressBackgroundWidth="10dp"
+            app:sp_progressColor="?attr/colorPrimary"
+            app:sp_progressBackgroundColor="?attr/colorControlHighlight"
+            app:sp_steps="7"
+            app:sp_space="16"
+            app:sp_roundCorners="true"
+            app:sp_currentStep="5"
+            app:sp_progress="60"
+            android:layout_gravity="center_horizontal"/>
+
+        <me.sudodios.stepprogressbar.LineStepProgressBar
+            android:id="@+id/lineProgress"
+            android:layout_width="match_parent"
+            app:lsp_progressWidth="10dp"
+            android:layout_marginTop="50dp"
+            app:lsp_progressBackgroundWidth="10dp"
+            app:lsp_progressColor="?attr/colorPrimary"
+            app:lsp_progressBackgroundColor="?attr/colorControlHighlight"
+            app:lsp_steps="7"
+            app:lsp_space="40dp"
+            app:lsp_roundCorners="true"
+            app:lsp_currentStep="5"
+            app:lsp_progress="60"
+            android:layout_height="wrap_content"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="step progressbar"
+            android:layout_marginTop="40dp"
+            android:textStyle="bold"
+            android:textSize="22dp"
+            app:fontFamily="sans-serif-smallcaps"/>
+
+        <me.sudodios.stepprogressapp.ColorSeekBar
+            android:id="@+id/colorProgress"
+            android:layout_width="match_parent"
+            android:layout_marginTop="30dp"
+            android:layout_height="wrap_content"/>
+
+        <me.sudodios.stepprogressapp.ColorSeekBar
+            android:id="@+id/colorBackground"
+            android:layout_width="match_parent"
+            android:layout_marginTop="20dp"
+            android:layout_height="wrap_content"/>
+
+        <com.google.android.material.slider.Slider
+            android:id="@+id/progressWidth"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:valueFrom="2"
+            android:valueTo="20"
+            android:stepSize="1"
+            android:layout_marginTop="20dp"/>
+
+        <com.google.android.material.slider.Slider
+            android:id="@+id/progressBackWidth"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:valueFrom="2"
+            android:valueTo="20"
+            android:stepSize="1" />
+
+        <com.google.android.material.slider.Slider
+            android:id="@+id/steps"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:value="7"
+            android:valueFrom="2"
+            android:valueTo="12"
+            android:stepSize="1" />
+
+        <com.google.android.material.slider.Slider
+            android:id="@+id/spaces"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:valueFrom="10"
+            android:valueTo="30"
+            android:stepSize="1" />
+
+        <com.google.android.material.slider.Slider
+            android:id="@+id/currentStep"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:valueFrom="1"
+            android:value="5"
+            android:valueTo="7"
+            android:stepSize="1" />
+
+        <com.google.android.material.slider.Slider
+            android:id="@+id/progress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:valueFrom="0"
+            android:valueTo="100"
+            android:value="60"
+            android:stepSize="1" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

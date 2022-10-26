@@ -1,0 +1,3 @@
+rootProject.name = "StepProgressApp"
+include ':app'
+include ':stepprogressbar'
