@@ -16,6 +16,7 @@ class MainActivity : AppCompatActivity() {
         WindowCompat.setDecorFitsSystemWindows(window, false)
 
 
+
         binding.colorProgress.onColorChanged = {
             binding.lineProgress.progressColor = it
             binding.circleProgress.progressColor = it
