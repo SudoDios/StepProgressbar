@@ -2,14 +2,13 @@ package me.sudodios.stepprogressbar
 
 import android.content.Context
 import android.content.res.Resources
-import android.graphics.Canvas
-import android.graphics.Color
-import android.graphics.Paint
-import android.graphics.RectF
+import android.graphics.*
 import android.util.AttributeSet
 import android.util.Log
 import android.view.View
+import kotlin.math.cos
 import kotlin.math.min
+import kotlin.math.sin
 
 class StepProgressBar(context: Context, attrs: AttributeSet) : View(context, attrs) {
 
@@ -55,6 +54,28 @@ class StepProgressBar(context: Context, attrs: AttributeSet) : View(context, att
             paintProgress.color = value
             requestLayout()
             invalidate()
+        }
+    var progressStartColor: Int? = null
+        set(value) {
+            field = if (value == 0) null else value
+            setupProgressColor()
+            invalidate()
+        }
+    var progressEndColor: Int? = null
+        set(value) {
+            field = if (value == 0) null else value
+            setupProgressColor()
+            invalidate()
+        }
+    var progressGradientDegree : Float = 45f
+        set(value) {
+            if (field < 0f || field > 360f) {
+                Log.e("StepProgressBar","gradient degree is not until 0..360")
+            } else {
+                field = value
+                setupProgressColor()
+                invalidate()
+            }
         }
     var progressBackgroundColor = Color.GRAY
         set(value) {
@@ -104,6 +125,9 @@ class StepProgressBar(context: Context, attrs: AttributeSet) : View(context, att
         roundCorners = attributes.getBoolean(R.styleable.StepProgressBar_sp_roundCorners,true)
 
         progressColor = attributes.getColor(R.styleable.StepProgressBar_sp_progressColor,progressColor)
+        progressStartColor = attributes.getColor(R.styleable.StepProgressBar_sp_progressStartColor,0)
+        progressEndColor = attributes.getColor(R.styleable.StepProgressBar_sp_progressEndColor,0)
+        progressGradientDegree = attributes.getFloat(R.styleable.StepProgressBar_sp_progressGradientDegree,45f)
         progressBackgroundColor = attributes.getColor(R.styleable.StepProgressBar_sp_progressBackgroundColor,progressBackgroundColor)
 
         progressWidth = attributes.getDimension(R.styleable.StepProgressBar_sp_progressWidth,progressWidth).pxToDp()
@@ -122,6 +146,12 @@ class StepProgressBar(context: Context, attrs: AttributeSet) : View(context, att
         setMeasuredDimension(min, min)
         val highStroke = if (progressWidth > progressBackgroundWidth) progressWidth else progressBackgroundWidth
         rectF.set(0 + highStroke / 2, 0 + highStroke / 2, min - highStroke / 2, min - highStroke / 2)
+    }
+
+    override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
+        super.onSizeChanged(w, h, oldw, oldh)
+        setupProgressColor()
+        invalidate()
     }
 
     override fun onDraw(canvas: Canvas) {
@@ -144,6 +174,20 @@ class StepProgressBar(context: Context, attrs: AttributeSet) : View(context, att
                 canvas.drawArc(rectF,finalStartAngle, (if (percentage == 0f) 0.1f else percentage),false,paintProgress)
             }
         }
+    }
+
+    private fun setupProgressColor () {
+        val angleInRadians = Math.toRadians(progressGradientDegree.toDouble())
+        val halfWidth = width / 2
+        val halfHeight = height / 2
+        val sinAngle = sin(angleInRadians)
+        val cosAngle = cos(angleInRadians)
+        val x0 = (halfWidth * (1 + sinAngle)).toFloat()
+        val y0 = (halfHeight * (1 - cosAngle)).toFloat()
+        val x1 = (halfWidth * (1 - sinAngle)).toFloat()
+        val y1 = (halfHeight * (1 + cosAngle)).toFloat()
+        paintProgress.shader = LinearGradient(x0,y0,x1,y1,progressStartColor ?: progressColor,
+            progressEndColor ?: progressColor, Shader.TileMode.CLAMP)
     }
 
     private fun Float.dpToPx(): Float =

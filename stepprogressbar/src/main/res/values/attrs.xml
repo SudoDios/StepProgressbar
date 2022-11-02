@@ -5,6 +5,9 @@
         <attr name="sp_steps" format="integer"/>
         <attr name="sp_roundCorners" format="boolean"/>
         <attr name="sp_progressColor" format="color"/>
+        <attr name="sp_progressStartColor" format="color"/>
+        <attr name="sp_progressEndColor" format="color"/>
+        <attr name="sp_progressGradientDegree" format="float"/>
         <attr name="sp_progressBackgroundColor" format="color"/>
         <attr name="sp_progressWidth" format="dimension"/>
         <attr name="sp_progressBackgroundWidth" format="dimension"/>
@@ -16,6 +19,9 @@
         <attr name="lsp_steps" format="integer"/>
         <attr name="lsp_roundCorners" format="boolean"/>
         <attr name="lsp_progressColor" format="color"/>
+        <attr name="lsp_progressStartColor" format="color"/>
+        <attr name="lsp_progressEndColor" format="color"/>
+        <attr name="lsp_progressGradientDegree" format="float"/>
         <attr name="lsp_progressBackgroundColor" format="color"/>
         <attr name="lsp_progressWidth" format="dimension"/>
         <attr name="lsp_progressBackgroundWidth" format="dimension"/>
