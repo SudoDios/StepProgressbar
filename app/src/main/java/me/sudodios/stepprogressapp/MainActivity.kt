@@ -17,14 +17,24 @@ class MainActivity : AppCompatActivity() {
 
 
 
-        binding.colorProgress.onColorChanged = {
-            binding.lineProgress.progressColor = it
-            binding.circleProgress.progressColor = it
+        binding.colorProgressStart.onColorChanged = {
+            binding.lineProgress.progressStartColor = it
+            binding.circleProgress.progressStartColor = it
+        }
+
+        binding.colorProgressEnd.onColorChanged = {
+            binding.lineProgress.progressEndColor = it
+            binding.circleProgress.progressEndColor = it
         }
 
         binding.colorBackground.onColorChanged = {
             binding.lineProgress.progressBackgroundColor = it
             binding.circleProgress.progressBackgroundColor = it
+        }
+
+        binding.progressGradientDegree.addOnChangeListener { _, value, _ ->
+            binding.lineProgress.progressGradientDegree = value
+            binding.circleProgress.progressGradientDegree = value
         }
 
         binding.progressWidth.addOnChangeListener { _, value, _ ->
