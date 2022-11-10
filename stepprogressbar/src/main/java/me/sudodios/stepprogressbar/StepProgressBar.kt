@@ -171,7 +171,7 @@ class StepProgressBar(context: Context, attrs: AttributeSet) : View(context, att
             } else if (i == progress.first - 1) {
                 //draw in progresses
                 val percentage = lineSizes * (progress.second / 100f)
-                canvas.drawArc(rectF,finalStartAngle, (if (percentage == 0f) 0.1f else percentage),false,paintProgress)
+                canvas.drawArc(rectF,finalStartAngle, percentage,false,paintProgress)
             }
         }
     }
