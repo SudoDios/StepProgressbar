@@ -5,9 +5,9 @@ make your step progress bar easily on your project
 
 [![Platform](https://img.shields.io/badge/platform-android-green.svg)](http://developer.android.com/index.html)
 [![API](https://img.shields.io/badge/API-16%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=16)
-![JitPack](https://img.shields.io/jitpack/version/com.github.SudoDios/StepProgressbar)
+[![](https://jitpack.io/v/SudoDios/StepProgressbar.svg)](https://jitpack.io/#SudoDios/StepProgressbar)
 
-<img src="https://github.com/SudoDios/StepProgressbar/blob/master/stepProgressbar.gif" width="144" height="321"/>
+<img src="https://github.com/SudoDios/StepProgressbar/blob/master/screen_shot.jpg" width="144" height="321"/>
 
 ### How to use
 Step 1 : Add it in your root build.gradle at the end of repositories:
@@ -22,7 +22,7 @@ allprojects {
 Step 2 : Add the dependency:
 ```gradle
 dependencies {
-	implementation 'com.github.SudoDios:StepProgressbar:1.0.0'
+	implementation 'com.github.SudoDios:StepProgressbar:1.2.0'
 }
 ```
 
@@ -35,6 +35,9 @@ dependencies {
      app:sp_progressWidth="10dp"
      app:sp_progressBackgroundWidth="10dp"
      app:sp_progressColor="?attr/colorPrimary"
+     app:sp_progressStartColor="#ff9800"
+     app:sp_progressEndColor="#701DC3"
+     app:sp_progressGradientDegree="45"
      app:sp_progressBackgroundColor="?attr/colorControlHighlight"
      app:sp_steps="7"
      app:sp_space="16"
@@ -51,6 +54,9 @@ dependencies {
      android:layout_marginTop="50dp"
      app:lsp_progressBackgroundWidth="10dp"
      app:lsp_progressColor="?attr/colorPrimary"
+     app:lsp_progressStartColor="#ff9800"
+     app:lsp_progressEndColor="#701DC3"
+     app:lsp_progressGradientDegree="45"
      app:lsp_progressBackgroundColor="?attr/colorControlHighlight"
      app:lsp_steps="7"
      app:lsp_space="40dp"
@@ -75,7 +81,12 @@ binding.stepProgressbar.apply {
       //customize color 
       progressColor = Color.GREEN
       progressBackgroundColor = Color.GRAY
-            
+      /*you can add gradient to progress*/
+      progressStartColor = Color.RED
+      progressEndColor = Color.YELLOW
+      /*gradient degree (angle) between 0..360*/
+      progressGradientDegree = 180f
+      
       //customize size
       progressWidth = 10f
       progressBackgroundWidth = 10f
