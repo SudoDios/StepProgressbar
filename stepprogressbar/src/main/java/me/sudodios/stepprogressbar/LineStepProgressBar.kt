@@ -155,10 +155,11 @@ class LineStepProgressBar(context: Context, attrs: AttributeSet?) : View(context
             val lineLocations = getLinesLocation(lineSizes,i)
             canvas.drawLine(lineLocations[0],centerH(), lineLocations[1],centerH(),paintBack)
             //progress
-            if (i < progress.first - 1) {
+            val counter = if (isRtl()) (steps - i) - 1 else i
+            if (counter < progress.first - 1) {
                 //draw completed progresses
                 canvas.drawLine(lineLocations[0],centerH(), lineLocations[1],centerH(),paintProgress)
-            } else if (i == progress.first - 1) {
+            } else if (counter == progress.first - 1) {
                 //draw in progresses
                 if (progress.second != 0f) {
                     val percentage = (lineLocations[1] - lineLocations[0]) * (progress.second / 100f)

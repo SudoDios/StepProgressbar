@@ -6,6 +6,7 @@ import android.graphics.*
 import android.util.AttributeSet
 import android.util.Log
 import android.view.View
+import androidx.core.view.ViewCompat
 import kotlin.math.cos
 import kotlin.math.min
 import kotlin.math.sin
@@ -162,15 +163,17 @@ class StepProgressBar(context: Context, attrs: AttributeSet) : View(context, att
             //calculate raw space
             val segments = (space * i) + (lineSizes * i)
             //move angle to degree 90 and handle center space
-            val finalStartAngle = segments - (90f - space / 2f)
+            var finalStartAngle = segments - (90f - space / 2f)
             canvas.drawArc(rectF,finalStartAngle,lineSizes,false,paintBack)
             //progress
-            if (i < progress.first - 1) {
+            val counter = if (isRtl()) (steps - i) - 1 else i
+            if (counter < progress.first - 1) {
                 //draw completed progresses
                 canvas.drawArc(rectF,finalStartAngle,lineSizes,false,paintProgress)
-            } else if (i == progress.first - 1) {
+            } else if (counter == progress.first - 1) {
                 //draw in progresses
                 val percentage = lineSizes * (progress.second / 100f)
+                finalStartAngle = if (isRtl()) finalStartAngle + (lineSizes * ((100f - progress.second)) / 100f) else finalStartAngle
                 canvas.drawArc(rectF,finalStartAngle, percentage,false,paintProgress)
             }
         }
@@ -195,4 +198,6 @@ class StepProgressBar(context: Context, attrs: AttributeSet) : View(context, att
 
     private fun Float.pxToDp(): Float =
         this / Resources.getSystem().displayMetrics.density
+
+    private fun isRtl (): Boolean = ViewCompat.getLayoutDirection(this) == ViewCompat.LAYOUT_DIRECTION_RTL
 }
