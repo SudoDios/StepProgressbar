@@ -22,7 +22,7 @@ allprojects {
 Step 2 : Add the dependency:
 ```gradle
 dependencies {
-	implementation 'com.github.SudoDios:StepProgressbar:1.2.1'
+	implementation 'com.github.SudoDios:StepProgressbar:1.3.0'
 }
 ```
 
@@ -100,5 +100,3 @@ binding.stepProgressbar.apply {
       }
 }
 ```
-#### Note
-`RTL support is coming soon`
